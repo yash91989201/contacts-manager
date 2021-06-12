@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+    <script src="./login.js" defer></script>
+</head>
+<body>
+   <div class="container">
+
+           <img  src="user.svg" alt="">
+
+    <div class="login">
+        Login
+    </div>
+    <form class="login_form" id="login_form">
+        <input    id="email"  class="email"  type="email" placeholder="Enter your email"/>
+        <input onfocus="checkUserEmail()" id="password"  class="password"  type="password" placeholder="Enter password"/>
+        <input id="login_btn" type="submit" value="Login" class="login_btn"  >
+        <div id="popUp">
+            <span>User doesnot exists , Signup</span>
+            <button class="signup_here" > <a  href="signup.html">Here</a> </button>
+        </div>
+    </form>
+    <!-- <div id="popUp">User does not exists</div> -->
+   </div> 
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="home.js" defer></script>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+
+<section class="overlay" id="overlay">
+
+    <div class="create_contact"  id="create_contact"> 
+        <div class="text">Create New Contact</div>
+        <form  enctype="multipart/form-data" class="contact_form" id="new_contact_form">
+           
+            <div class="upload_img">
+                <input type="file" name="contactImage" id="image">
+            </div>
+            <div class="part1">
+                <input type="text" name="contactName" id="name" placeholder="Contact Name" required>
+            
+                <input type="tel" name="contactNumber" id="number" placeholder="Phone Number" required>
+               
+            </div>
+           <div class="part2">
+                <input type="email" name="contactEmail" id="emailId" placeholder="Contact Email Id" required>
+                <input type="text" name="contactType" id="type" placeholder="Contact Type" required>
+           </div>
+            
+        </form>
+        <div class="footer">
+            <input type="button" value="Cancel" onclick="toggleModal(false) , clearFormData('new_contact_form')" class="cancel_btn">
+            <input type="button" value="Save" class="save_btn" id="save_btn" onclick=createNewContact()>
+        </div>
+    </div>
+
+    <div class="edit_contact" id="edit_contact" >
+        <div class="text">Update Contact</div>
+        <form  enctype="multipart/form-data" class="contact_form" id="edit_contact">
+           
+            <div class="upload_img">
+                <input type="file" name="contactImage" id="image">
+            </div>
+            <div class="part1">
+                <input type="text" name="contactName" id="name" placeholder="Contact Name" required>
+            
+                <input type="tel" name="contactNumber" id="number" placeholder="Phone Number" required>
+               
+            </div>
+           <div class="part2">
+                <input type="email" name="contactEmail" id="emailId" placeholder="Contact Email Id" required>
+                <input type="text" name="contactType" id="type" placeholder="Contact Type" required>
+           </div>
+            
+        </form>
+        <div class="footer">
+            <input type="button" value="Cancel" onclick=toggleModal(false) class="cancel_btn">
+            <input type="button" value="Update" class="save_btn" id="update_btn" >
+        </div>
+    </div>
+
+    <div class="show_individual_contact" id="show_individual_contact" ></div>
+
+</section>
+
+    <section class="header">
+
+        <section class="create_contact_box" id="create_contact_box"  onclick="toggleModal(true,'create_contact')">
+            <button> 
+                <img src="https://img.icons8.com/plasticine/50/000000/plus-math.png" width="40px" height="40px" />
+                <span > Create Contact</span> 
+            </button>
+        </section>
+
+        <section class="search_box" id="search_box">
+          
+                <input type="text"  placeholder="Search Contacts ..."  oninput=searchContactNumber() id="search_query" >
+                <i class="fas fa-search"></i>
+                <i class="fas fa-times" onclick=clearSearchBox()></i>
+                <div class="search_results" id="search_results">
+                   
+                     
+
+                    
+                    
+         </section>
+
+        <section class="logout_btn_container">
+            <button class="logout_btn" onclick="userLogout()">
+                <a href="#">Logout</a>
+            </button>
+        </section>
+
+    </section>
+
+    <section class="main_container">
+
+    <section class="starred_contacts_box" id="starred_contacts_box"> 
+        
+        <div class="info" id="info">
+
+            <span> Click on </span>
+            
+              <span>  <i class="fas fa-star"></i>icon to </span>
+              <span>add/remove </span>
+               <span>contacts from </span>
+               <span>this section</span>
+          </div>
+         <div class="text">Starred Contacts</div>
+         <div class="starred_contacts_container" id="starred_contacts_container"></div>
+        
+        
+    </section>  
+        
+    <section class="no_contacts" id="no_contacts">
+        <div>NO CONTACTS AVAILABLE,</div> 
+        <div class="create_new_contact_button"  onclick="toggleModal(true,'create_contact')">CLICK HERE</div> 
+        <div>TO ADD YOUR FIRST CONTACT</div>
+    </section>
+    <section class="contacts_table"  id="contacts_table">
+            
+            <div class="table_header">
+                <span class="name" >Name</span>
+                <span class="number">Phone Number</span>
+                <span class="emailId">Email Id</span>
+                <span class="type">Type</span>
+                <span class="no_content"></span>
+            </div>
+            <div class="h_line"></div><div class="all_contacts" id="all_contacts">
+                
+            </div>
+    </section>
+
+    </section>
+    
+</body>
+</html>
+
+
